@@ -165,6 +165,74 @@
         }
       }
 
+      .preview-stack {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .preview-stack figure {
+        position: relative;
+        margin: 0;
+        border-radius: 26px;
+        overflow: hidden;
+        background: #05050a;
+        box-shadow: 0 24px 40px rgba(15, 15, 35, 0.16);
+        transform-origin: center;
+        transition: transform 200ms ease, box-shadow 200ms ease;
+      }
+
+      .preview-stack figure:nth-child(odd) {
+        transform: translateY(14px);
+      }
+
+      .preview-stack figure:hover {
+        transform: translateY(0);
+        box-shadow: 0 32px 55px rgba(0, 113, 227, 0.22);
+      }
+
+      @media (max-width: 920px) {
+        .preview-stack {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .preview-stack figure:nth-child(odd) {
+          transform: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .preview-stack {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .preview-stack img {
+        width: 100%;
+        display: block;
+      }
+
+      .preview-stack figcaption {
+        position: absolute;
+        left: 18px;
+        bottom: 18px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(12, 12, 16, 0.75);
+        color: #f7f7fb;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        backdrop-filter: blur(12px);
+      }
+
+      @media (prefers-color-scheme: light) {
+        .preview-stack figcaption {
+          background: rgba(245, 245, 247, 0.82);
+          color: var(--fg);
+        }
+      }
+
       .cta-group {
         margin-top: 32px;
         display: flex;
@@ -267,6 +335,17 @@
         }
       }
 
+      .approach-card {
+        display: grid;
+        gap: 28px;
+      }
+
+      .approach-columns {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
       .project-card {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -299,6 +378,11 @@
         margin: 24px 0 0;
         display: grid;
         gap: 12px;
+      }
+
+      .list-clean.dense {
+        margin-top: 0;
+        gap: 10px;
       }
 
       .list-clean li::before {
@@ -397,15 +481,40 @@
             <a class="button-ghost" href="mailto:gap.wyrwa@gmail.com" data-pl="Porozmawiajmy" data-en="Let's talk">Porozmawiajmy</a>
           </div>
         </div>
-        <div class="glass-card feature-card">
-          <h3 data-pl="Specjalizacja" data-en="Focus areas">Specjalizacja</h3>
-          <p data-pl="Doświadczenie produktowe łączę z danymi rynkowymi, aby prowadzić użytkownika od potrzeby do zakupu." data-en="I merge product craft with market data so that each journey from need to checkout feels confident.">Doświadczenie produktowe łączę z danymi rynkowymi, aby prowadzić użytkownika od potrzeby do zakupu.</p>
-          <ul class="list-clean">
-            <li data-pl="Porównywanie ofert w czasie rzeczywistym" data-en="Real-time offer comparison">Porównywanie ofert w czasie rzeczywistym</li>
-            <li data-pl="Inteligentne listy zakupów" data-en="Intelligent shopping lists">Inteligentne listy zakupów</li>
-            <li data-pl="Skanowanie produktów i analiza cen" data-en="Product scanning with price insights">Skanowanie produktów i analiza cen</li>
-            <li data-pl="Projektowanie doświadczeń na miarę Apple" data-en="Apple-level experience design">Projektowanie doświadczeń na miarę Apple</li>
-          </ul>
+        <div class="preview-stack">
+          <figure>
+            <img src="Screenshot_20251106_104639.png" alt="Pricer add product flow" loading="lazy" />
+            <figcaption data-pl="Dodawanie produktu" data-en="Add product flow">Dodawanie produktu</figcaption>
+          </figure>
+          <figure>
+            <img src="Screenshot_20251106_104712.png" alt="Pricer shopping lists view" loading="lazy" />
+            <figcaption data-pl="Listy zakupowe" data-en="Shopping lists">Listy zakupowe</figcaption>
+          </figure>
+          <figure>
+            <img src="Screenshot_20251106_104923.png" alt="Pricer price analytics view" loading="lazy" />
+            <figcaption data-pl="Analiza ceny" data-en="Price analytics">Analiza ceny</figcaption>
+          </figure>
+          <figure>
+            <img src="Screenshot_20251106_105103.png" alt="Pricer welcome screen" loading="lazy" />
+            <figcaption data-pl="Ekran powitalny" data-en="Welcome screen">Ekran powitalny</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="approach">
+        <div class="section-heading" data-pl="Jak pracuję" data-en="How I work">Jak pracuję</div>
+        <div class="glass-card approach-card">
+          <h2 data-pl="Konkrety zamiast marketingu" data-en="Concrete work, not buzzwords">Konkrety zamiast marketingu</h2>
+          <div class="approach-columns">
+            <ul class="list-clean dense">
+              <li data-pl="Projektuję w Figma i implementuję we Flutterze — od makiety do wydania w Google Play." data-en="Design in Figma, ship in Flutter — from wireframe to Google Play build.">Projektuję w Figma i implementuję we Flutterze — od makiety do wydania w Google Play.</li>
+              <li data-pl="Łączę Supabase, SQLite i Firebase, aby dane były dostępne także offline." data-en="Supabase, SQLite and Firebase keep data available even offline.">Łączę Supabase, SQLite i Firebase, aby dane były dostępne także offline.</li>
+            </ul>
+            <ul class="list-clean dense">
+              <li data-pl="Optymalizuję skaner kodów i przepływy list zakupowych na realnych urządzeniach." data-en="Tune barcode scanning and shopping flows on real hardware.">Optymalizuję skaner kodów i przepływy list zakupowych na realnych urządzeniach.</li>
+              <li data-pl="Pilnuję bezpieczeństwa kluczy API i logowania — zero wrażliwych danych w logach." data-en="Keep API keys and logging safe — no secrets leaking to logs.">Pilnuję bezpieczeństwa kluczy API i logowania — zero wrażliwych danych w logach.</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -413,16 +522,16 @@
         <div class="section-heading" data-pl="Flagowy projekt" data-en="Flagship project">Flagowy projekt</div>
         <div class="glass-card project-card">
           <div class="project-visual" aria-hidden="true">
-            <span data-pl="Pricer — wkrótce w Google Play" data-en="Pricer — coming soon to Google Play">Pricer — wkrótce w Google Play</span>
+            <span data-pl="Pricer 1.0.0 — build zgłoszony do Google Play" data-en="Pricer 1.0.0 — build submitted to Google Play">Pricer 1.0.0 — build zgłoszony do Google Play</span>
           </div>
           <div>
             <h2 data-pl="Pricer — twój asystent zakupowy" data-en="Pricer — your shopping companion">Pricer — twój asystent zakupowy</h2>
-            <p data-pl="Aplikacja mobilna, która ułatwia porównywanie cen pomiędzy sklepami, pilnuje promocji oraz rekomenduje najlepszy moment i miejsce zakupu." data-en="A mobile app that simplifies cross-store price comparison, tracks promotions, and recommends the smartest moment and place to buy.">Aplikacja mobilna, która ułatwia porównywanie cen pomiędzy sklepami, pilnuje promocji oraz rekomenduje najlepszy moment i miejsce zakupu.</p>
+            <p data-pl="Buduję narzędzie, które nie zgaduje promocji — pokazuje realne dane o cenach i walutach. Całość piszę w Flutterze, wspierając się Supabase i lokalną bazą SQLite." data-en="Pricer gives price and currency data you can trust. I build it end-to-end in Flutter with Supabase and local SQLite caching.">Buduję narzędzie, które nie zgaduje promocji — pokazuje realne dane o cenach i walutach. Całość piszę w Flutterze, wspierając się Supabase i lokalną bazą SQLite.</p>
             <ul class="list-clean">
-              <li data-pl="Listy zakupowe synchronizowane między urządzeniami" data-en="Shopping lists synced across devices">Listy zakupowe synchronizowane między urządzeniami</li>
-              <li data-pl="Skaner kodów kreskowych z natychmiastową analizą" data-en="Barcode scanner with instant insights">Skaner kodów kreskowych z natychmiastową analizą</li>
-              <li data-pl="Konwersja walut z uwzględnieniem kursów w czasie rzeczywistym" data-en="Currency conversion based on live exchange rates">Konwersja walut z uwzględnieniem kursów w czasie rzeczywistym</li>
-              <li data-pl="Tryb offline i inteligentne rekomendacje" data-en="Offline mode and intelligent recommendations">Tryb offline i inteligentne rekomendacje</li>
+              <li data-pl="Listy zakupowe synchronizowane między urządzeniami i dostępne offline." data-en="Shopping lists sync across devices and stay available offline.">Listy zakupowe synchronizowane między urządzeniami i dostępne offline.</li>
+              <li data-pl="Skaner kodów kreskowych z obsługą historii cen i własnych notatek." data-en="Barcode scanner with price history and personal notes.">Skaner kodów kreskowych z obsługą historii cen i własnych notatek.</li>
+              <li data-pl="Porównanie walut w czasie rzeczywistym na podstawie kursów NBP/ECB (w trakcie dopracowania)." data-en="Live currency comparison powered by NBP/ECB rates (currently being tuned).">Porównanie walut w czasie rzeczywistym na podstawie kursów NBP/ECB (w trakcie dopracowania).</li>
+              <li data-pl="Alerty promocyjne oparte na statystykach cen — do wdrożenia po premierze." data-en="Promo alerts based on price stats — queued right after launch.">Alerty promocyjne oparte na statystykach cen — do wdrożenia po premierze.</li>
             </ul>
             <div class="cta-group" style="margin-top: 32px;">
               <a class="button-primary" href="mailto:gap.wyrwa@gmail.com" data-pl="Poproś o demo" data-en="Request a demo">Poproś o demo</a>
@@ -436,16 +545,16 @@
         <div class="section-heading" data-pl="Plan rozwoju" data-en="Roadmap">Plan rozwoju</div>
         <div class="features-grid">
           <div class="glass-card feature-card">
-            <h3 data-pl="Rok 2024" data-en="2024">Rok 2024</h3>
-            <p data-pl="Finalizuję wersję 1.0.0 aplikacji Pricer z naciskiem na stabilność, bezpieczeństwo kluczy API i solidne doświadczenie pierwszego uruchomienia." data-en="Finalising Pricer 1.0.0 with a focus on stability, secure API key handling, and a polished first-run experience.">Finalizuję wersję 1.0.0 aplikacji Pricer z naciskiem na stabilność, bezpieczeństwo kluczy API i solidne doświadczenie pierwszego uruchomienia.</p>
+            <h3 data-pl="Listopad 2024" data-en="November 2024">Listopad 2024</h3>
+            <p data-pl="Testy regresji builda 1.0.0, weryfikacja kursów walut i zgłoszenie aplikacji do zamkniętej bety Google Play." data-en="Regression testing the 1.0.0 build, verifying currency maths and submitting the app to Google Play closed testing.">Testy regresji builda 1.0.0, weryfikacja kursów walut i zgłoszenie aplikacji do zamkniętej bety Google Play.</p>
           </div>
           <div class="glass-card feature-card">
-            <h3 data-pl="VI kwartał" data-en="Q2">VI kwartał</h3>
-            <p data-pl="Integracja dodatkowych źródeł danych cenowych oraz rozbudowa porównań o inteligentne alerty w wielu walutach." data-en="Integrating additional price data sources and expanding comparisons with proactive currency-aware alerts.">Integracja dodatkowych źródeł danych cenowych oraz rozbudowa porównań o inteligentne alerty w wielu walutach.</p>
+            <h3 data-pl="Grudzień 2024" data-en="December 2024">Grudzień 2024</h3>
+            <p data-pl="Analiza feedbacku testerów, optymalizacja skanera kodów oraz wdrożenie Crashlytics i Analityki dla produkcji." data-en="Analyse tester feedback, tighten barcode scanning and enable Crashlytics + Analytics for production.">Analiza feedbacku testerów, optymalizacja skanera kodów oraz wdrożenie Crashlytics i Analityki dla produkcji.</p>
           </div>
           <div class="glass-card feature-card">
-            <h3 data-pl="Wkrótce" data-en="Next">Wkrótce</h3>
-            <p data-pl="Wdrożenie asystenta zakupowego z elementami AI, który będzie proponował alternatywne produkty i budżety." data-en="Releasing an AI-augmented shopping assistant that suggests alternatives and optimises budgets.">Wdrożenie asystenta zakupowego z elementami AI, który będzie proponował alternatywne produkty i budżety.</p>
+            <h3 data-pl="Styczeń 2025" data-en="January 2025">Styczeń 2025</h3>
+            <p data-pl="Alerty promocyjne i moduł asystenta zakupowego korzystający z historii cen — przygotowanie roadmapy 1.1." data-en="Promo alerts and the shopping assistant module backed by price history — planning the 1.1 roadmap.">Alerty promocyjne i moduł asystenta zakupowego korzystający z historii cen — przygotowanie roadmapy 1.1.</p>
           </div>
         </div>
       </section>
