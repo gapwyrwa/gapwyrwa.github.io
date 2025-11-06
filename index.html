@@ -64,30 +64,32 @@
       }
 
       .brand {
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-template-rows: auto auto;
-        grid-column-gap: 10px;
-        align-items: center;
-        font-weight: 600;
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 10px;
       }
 
       .brand-logo {
-        grid-row: 1 / span 2;
-        height: 32px;
+        height: 34px;
         width: auto;
       }
 
-      .brand span {
-        font-size: 0.9rem;
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+        font-weight: 600;
+      }
+
+      .brand-name {
+        font-size: 0.95rem;
         letter-spacing: 0.06em;
         text-transform: uppercase;
       }
 
-      .brand small {
+      .brand-tagline {
         font-size: 0.85rem;
         letter-spacing: 0.02em;
-        margin-top: -2px;
       }
 
       nav {
@@ -564,8 +566,10 @@
       <div class="nav-bar">
         <div class="brand">
           <img src="GAP.png" alt="Logo GAP" class="brand-logo" />
-          <span>GAP</span>
-          <small>Grzegorz Wyrwa</small>
+          <div class="brand-text">
+            <span class="brand-name">GAP</span>
+            <span class="brand-tagline">Grzegorz Wyrwa</span>
+          </div>
         </div>
         <nav>
           <a href="#about" data-pl="O mnie" data-en="About">O mnie</a>
