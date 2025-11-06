@@ -64,10 +64,23 @@
       }
 
       .brand {
-        font-size: 1.1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 0.9rem;
         font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .brand-logo {
+        height: 32px;
+        width: auto;
+      }
+
+      .brand span {
+        font-size: 0.85rem;
+        letter-spacing: 0.02em;
       }
 
       nav {
@@ -178,50 +191,6 @@
         display: block;
       }
 
-      .logo-band {
-        display: flex;
-        gap: 18px;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-top: 32px;
-      }
-
-      .logo-band figure {
-        margin: 0;
-        padding: 12px 18px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.75);
-        box-shadow: 0 12px 28px rgba(15, 15, 35, 0.12);
-        display: grid;
-        place-items: center;
-        gap: 10px;
-        min-width: 120px;
-      }
-
-      .logo-band img {
-        height: 56px;
-        width: auto;
-      }
-
-      .logo-band figcaption {
-        font-size: 0.8rem;
-        font-weight: 500;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: var(--fg-muted);
-        text-align: center;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        .logo-band figure {
-          background: rgba(31, 31, 38, 0.9);
-          box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
-        }
-
-        .logo-band figcaption {
-          color: rgba(237, 237, 250, 0.7);
-        }
-      }
 
       .preview-stack {
         display: grid;
@@ -586,7 +555,10 @@
   <body>
     <header>
       <div class="nav-bar">
-        <div class="brand">GAP GRZEGORZ WYRWA</div>
+        <div class="brand">
+          <img src="GAP.png" alt="Logo GAP" class="brand-logo" />
+          <span>Grzegorz Wyrwa</span>
+        </div>
         <nav>
           <a href="#about" data-pl="O mnie" data-en="About">O mnie</a>
           <a href="#projects" data-pl="Projekty" data-en="Projects">Projekty</a>
@@ -608,16 +580,6 @@
           <p data-pl="Pracowałem poza IT, a po godzinach zaczęło mnie wciągać programowanie. Latem 2024 (na starcie Q3) wystartowałem z Pricerem i od tego czasu uczę się Fluttera, korzystając z tutoriali oraz narzędzi AI." data-en="I used to work outside IT, and coding after hours pulled me in. In early Q3 2024 I started Pricer and since then I have been learning Flutter with tutorials and AI helpers.">Pracowałem poza IT, a po godzinach zaczęło mnie wciągać programowanie. Latem 2024 (na starcie Q3) wystartowałem z Pricerem i od tego czasu uczę się Fluttera, korzystając z tutoriali oraz narzędzi AI.</p>
           <p data-pl="W 2026 roku chcę rozpocząć niestacjonarne studia informatyczne, żeby uporządkować wiedzę i mieć solidną podstawę teoretyczną. Traktuję mój projekt jako poligon: szlifuję architekturę, testuję pomysły i pilnuję bezpieczeństwa danych." data-en="In 2026 I plan to start part-time computer science studies to structure my knowledge. Pricer is my training ground: I learn architecture, test ideas, and keep data safe.">W 2026 roku chcę rozpocząć niestacjonarne studia informatyczne, żeby uporządkować wiedzę i mieć solidną podstawę teoretyczną. Traktuję mój projekt jako poligon: szlifuję architekturę, testuję pomysły i pilnuję bezpieczeństwa danych.</p>
           <p data-pl="W zależności od odzewu na Pricer: albo będę go dalej rozwijał, albo uruchomię nową aplikację wspierającą walkę z prokrastynacją. Jestem otwarty na feedback i rozmowy." data-en="Depending on how Pricer is received, I will either keep expanding it or start a new app that fights procrastination. I am open to feedback and conversations.">W zależności od odzewu na Pricer: albo będę go dalej rozwijał, albo uruchomię nową aplikację wspierającą walkę z prokrastynacją. Jestem otwarty na feedback i rozmowy.</p>
-          <div class="logo-band">
-            <figure>
-              <img src="GAP.png" alt="Logo GAP Grzegorz Wyrwa" loading="lazy" />
-              <figcaption data-pl="GAP — moja marka" data-en="GAP — my brand">GAP — moja marka</figcaption>
-            </figure>
-            <figure>
-              <img src="logo.png" alt="Logo aplikacji Pricer" loading="lazy" />
-              <figcaption data-pl="Pricer — pierwszy projekt" data-en="Pricer — first project">Pricer — pierwszy projekt</figcaption>
-            </figure>
-          </div>
           <div class="cta-group">
             <a class="button-primary" href="#projects" data-pl="Zobacz projekty" data-en="Browse projects">Zobacz projekty</a>
             <a class="button-ghost" href="mailto:gap.wyrwa@gmail.com" data-pl="Chcę porozmawiać" data-en="Let's talk">Chcę porozmawiać</a>
