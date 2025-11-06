@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-pl="gapwyrwa — projektant produktów cyfrowych" data-en="gapwyrwa — digital product maker">gapwyrwa — projektant produktów cyfrowych</title>
+    <meta name="description" content="gapwyrwa — portfolio twórcy aplikacji Pricer. Buduję intuicyjne rozwiązania do porównywania cen, list zakupowych i inteligentnych asystentów." />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f5f5f7;
+        --bg-dark: #101012;
+        --fg: #0b0b0f;
+        --fg-muted: #4f4f62;
+        --accent: #0071e3;
+        --accent-dark: #0a84ff;
+        --card: rgba(255, 255, 255, 0.75);
+        --card-dark: rgba(20, 20, 24, 0.75);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, rgba(0, 113, 227, 0.08), rgba(60, 60, 70, 0.12)), var(--bg);
+        color: var(--fg);
+        min-height: 100vh;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: linear-gradient(135deg, rgba(10, 132, 255, 0.18), rgba(10, 10, 15, 0.9)), var(--bg-dark);
+          color: #f7f7fb;
+        }
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(18px);
+        background: rgba(245, 245, 247, 0.65);
+        border-bottom: 1px solid rgba(12, 12, 16, 0.05);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        header {
+          background: rgba(12, 12, 16, 0.65);
+          border-bottom-color: rgba(255, 255, 255, 0.06);
+        }
+      }
+
+      .nav-bar {
+        margin: 0 auto;
+        max-width: 1100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 24px;
+        gap: 16px;
+      }
+
+      .brand {
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      nav {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        font-size: 0.95rem;
+      }
+
+      nav a {
+        color: inherit;
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: 999px;
+        transition: background 180ms ease, color 180ms ease;
+      }
+
+      nav a:hover {
+        background: rgba(0, 0, 0, 0.06);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        nav a:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      .locale-toggle {
+        display: inline-flex;
+        padding: 4px;
+        background: rgba(0, 0, 0, 0.04);
+        border-radius: 999px;
+        gap: 4px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .locale-toggle {
+          background: rgba(255, 255, 255, 0.08);
+        }
+      }
+
+      .locale-toggle button {
+        border: none;
+        background: transparent;
+        color: inherit;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background 180ms ease, color 180ms ease;
+      }
+
+      .locale-toggle button.active {
+        background: #fff;
+        color: var(--fg);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .locale-toggle button.active {
+          background: #1f1f25;
+          color: #f7f7fb;
+        }
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px 120px;
+      }
+
+      .hero {
+        padding: 120px 0 80px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: center;
+        gap: 40px;
+      }
+
+      .headline {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        letter-spacing: -0.04em;
+        margin: 0 0 24px;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--fg-muted);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .hero p {
+          color: rgba(237, 237, 250, 0.78);
+        }
+      }
+
+      .cta-group {
+        margin-top: 32px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .button-primary,
+      .button-ghost {
+        border-radius: 999px;
+        padding: 14px 28px;
+        font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      }
+
+      .button-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        color: #fff;
+        box-shadow: 0 20px 35px rgba(0, 113, 227, 0.25);
+      }
+
+      .button-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 26px 45px rgba(0, 113, 227, 0.32);
+      }
+
+      .button-ghost {
+        background: rgba(0, 0, 0, 0.04);
+        color: inherit;
+      }
+
+      .button-ghost:hover {
+        transform: translateY(-2px);
+        background: rgba(0, 0, 0, 0.08);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .button-ghost {
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        .button-ghost:hover {
+          background: rgba(255, 255, 255, 0.18);
+        }
+      }
+
+      .glass-card {
+        background: var(--card);
+        border-radius: 28px;
+        padding: 32px;
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 18px 40px rgba(15, 15, 35, 0.08);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .glass-card {
+          background: var(--card-dark);
+          border-color: rgba(255, 255, 255, 0.08);
+          box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+        }
+      }
+
+      .section-heading {
+        font-size: 0.95rem;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--fg-muted);
+        margin-bottom: 18px;
+      }
+
+      section {
+        margin-bottom: 80px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 28px;
+      }
+
+      .feature-card h3 {
+        margin-top: 0;
+        font-size: 1.3rem;
+      }
+
+      .feature-card p {
+        color: var(--fg-muted);
+        line-height: 1.6;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .feature-card p {
+          color: rgba(237, 237, 250, 0.78);
+        }
+      }
+
+      .project-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        align-items: center;
+      }
+
+      .project-visual {
+        border-radius: 24px;
+        background: linear-gradient(160deg, rgba(0, 113, 227, 0.25), rgba(109, 213, 250, 0.2));
+        min-height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 1.4rem;
+        text-align: center;
+        padding: 24px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .project-visual {
+          background: linear-gradient(160deg, rgba(10, 132, 255, 0.45), rgba(48, 209, 88, 0.38));
+        }
+      }
+
+      .list-clean {
+        list-style: none;
+        padding: 0;
+        margin: 24px 0 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .list-clean li::before {
+        content: "•";
+        color: var(--accent);
+        margin-right: 10px;
+      }
+
+      .contact-card {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 1.1rem;
+      }
+
+      .contact-card a {
+        color: inherit;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      footer {
+        padding: 48px 24px 72px;
+        background: rgba(0, 0, 0, 0.04);
+        color: var(--fg-muted);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        footer {
+          background: rgba(255, 255, 255, 0.06);
+          color: rgba(237, 237, 250, 0.65);
+        }
+      }
+
+      footer .footer-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.9rem;
+      }
+
+      footer a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      @media (max-width: 640px) {
+        nav {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 96px;
+        }
+
+        .glass-card {
+          padding: 28px;
+        }
+
+        footer .footer-content {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-bar">
+        <div class="brand">gapwyrwa</div>
+        <nav>
+          <a href="#vision" data-pl="Wizja" data-en="Vision">Wizja</a>
+          <a href="#pricer" data-pl="Pricer" data-en="Pricer">Pricer</a>
+          <a href="#roadmap" data-pl="Plan" data-en="Roadmap">Plan</a>
+          <a href="#contact" data-pl="Kontakt" data-en="Contact">Kontakt</a>
+          <a href="privacy.html" data-pl="Prywatność" data-en="Privacy">Prywatność</a>
+        </nav>
+        <div class="locale-toggle" role="group" aria-label="Language toggle">
+          <button type="button" data-locale-button="pl" class="active">PL</button>
+          <button type="button" data-locale-button="en">EN</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero" id="vision">
+        <div>
+          <p class="section-heading" data-pl="Produkt cyfrowy" data-en="Digital product">Produkt cyfrowy</p>
+          <h1 class="headline" data-pl="Projektuję spokojne doświadczenia zakupowe" data-en="I design calm shopping experiences">Projektuję spokojne doświadczenia zakupowe</h1>
+          <p data-pl="Skupiam się na aplikacjach, które pomagają porównywać ceny, planować zakupy i podejmować bardziej świadome decyzje. Każdy piksel ma wspierać realną przewagę użytkownika." data-en="I focus on building apps that make comparing prices, planning shopping trips, and acting on real insights effortless. Every detail aims to give users a tangible edge.">Skupiam się na aplikacjach, które pomagają porównywać ceny, planować zakupy i podejmować bardziej świadome decyzje. Każdy piksel ma wspierać realną przewagę użytkownika.</p>
+          <div class="cta-group">
+            <a class="button-primary" href="#pricer" data-pl="Zobacz projekt" data-en="Explore the project">Zobacz projekt</a>
+            <a class="button-ghost" href="mailto:gap.wyrwa@gmail.com" data-pl="Porozmawiajmy" data-en="Let's talk">Porozmawiajmy</a>
+          </div>
+        </div>
+        <div class="glass-card feature-card">
+          <h3 data-pl="Specjalizacja" data-en="Focus areas">Specjalizacja</h3>
+          <p data-pl="Doświadczenie produktowe łączę z danymi rynkowymi, aby prowadzić użytkownika od potrzeby do zakupu." data-en="I merge product craft with market data so that each journey from need to checkout feels confident.">Doświadczenie produktowe łączę z danymi rynkowymi, aby prowadzić użytkownika od potrzeby do zakupu.</p>
+          <ul class="list-clean">
+            <li data-pl="Porównywanie ofert w czasie rzeczywistym" data-en="Real-time offer comparison">Porównywanie ofert w czasie rzeczywistym</li>
+            <li data-pl="Inteligentne listy zakupów" data-en="Intelligent shopping lists">Inteligentne listy zakupów</li>
+            <li data-pl="Skanowanie produktów i analiza cen" data-en="Product scanning with price insights">Skanowanie produktów i analiza cen</li>
+            <li data-pl="Projektowanie doświadczeń na miarę Apple" data-en="Apple-level experience design">Projektowanie doświadczeń na miarę Apple</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="pricer">
+        <div class="section-heading" data-pl="Flagowy projekt" data-en="Flagship project">Flagowy projekt</div>
+        <div class="glass-card project-card">
+          <div class="project-visual" aria-hidden="true">
+            <span data-pl="Pricer — wkrótce w Google Play" data-en="Pricer — coming soon to Google Play">Pricer — wkrótce w Google Play</span>
+          </div>
+          <div>
+            <h2 data-pl="Pricer — twój asystent zakupowy" data-en="Pricer — your shopping companion">Pricer — twój asystent zakupowy</h2>
+            <p data-pl="Aplikacja mobilna, która ułatwia porównywanie cen pomiędzy sklepami, pilnuje promocji oraz rekomenduje najlepszy moment i miejsce zakupu." data-en="A mobile app that simplifies cross-store price comparison, tracks promotions, and recommends the smartest moment and place to buy.">Aplikacja mobilna, która ułatwia porównywanie cen pomiędzy sklepami, pilnuje promocji oraz rekomenduje najlepszy moment i miejsce zakupu.</p>
+            <ul class="list-clean">
+              <li data-pl="Listy zakupowe synchronizowane między urządzeniami" data-en="Shopping lists synced across devices">Listy zakupowe synchronizowane między urządzeniami</li>
+              <li data-pl="Skaner kodów kreskowych z natychmiastową analizą" data-en="Barcode scanner with instant insights">Skaner kodów kreskowych z natychmiastową analizą</li>
+              <li data-pl="Konwersja walut z uwzględnieniem kursów w czasie rzeczywistym" data-en="Currency conversion based on live exchange rates">Konwersja walut z uwzględnieniem kursów w czasie rzeczywistym</li>
+              <li data-pl="Tryb offline i inteligentne rekomendacje" data-en="Offline mode and intelligent recommendations">Tryb offline i inteligentne rekomendacje</li>
+            </ul>
+            <div class="cta-group" style="margin-top: 32px;">
+              <a class="button-primary" href="mailto:gap.wyrwa@gmail.com" data-pl="Poproś o demo" data-en="Request a demo">Poproś o demo</a>
+              <a class="button-ghost" href="#roadmap" data-pl="Zobacz plan rozwoju" data-en="See the roadmap">Zobacz plan rozwoju</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <div class="section-heading" data-pl="Plan rozwoju" data-en="Roadmap">Plan rozwoju</div>
+        <div class="features-grid">
+          <div class="glass-card feature-card">
+            <h3 data-pl="Rok 2024" data-en="2024">Rok 2024</h3>
+            <p data-pl="Finalizuję wersję 1.0.0 aplikacji Pricer z naciskiem na stabilność, bezpieczeństwo kluczy API i solidne doświadczenie pierwszego uruchomienia." data-en="Finalising Pricer 1.0.0 with a focus on stability, secure API key handling, and a polished first-run experience.">Finalizuję wersję 1.0.0 aplikacji Pricer z naciskiem na stabilność, bezpieczeństwo kluczy API i solidne doświadczenie pierwszego uruchomienia.</p>
+          </div>
+          <div class="glass-card feature-card">
+            <h3 data-pl="VI kwartał" data-en="Q2">VI kwartał</h3>
+            <p data-pl="Integracja dodatkowych źródeł danych cenowych oraz rozbudowa porównań o inteligentne alerty w wielu walutach." data-en="Integrating additional price data sources and expanding comparisons with proactive currency-aware alerts.">Integracja dodatkowych źródeł danych cenowych oraz rozbudowa porównań o inteligentne alerty w wielu walutach.</p>
+          </div>
+          <div class="glass-card feature-card">
+            <h3 data-pl="Wkrótce" data-en="Next">Wkrótce</h3>
+            <p data-pl="Wdrożenie asystenta zakupowego z elementami AI, który będzie proponował alternatywne produkty i budżety." data-en="Releasing an AI-augmented shopping assistant that suggests alternatives and optimises budgets.">Wdrożenie asystenta zakupowego z elementami AI, który będzie proponował alternatywne produkty i budżety.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-heading" data-pl="Kontakt" data-en="Contact">Kontakt</div>
+        <div class="glass-card contact-card">
+          <p data-pl="Porozmawiajmy o digitalowych doświadczeniach zakupowych, które stawiają użytkownika w centrum." data-en="Let's collaborate on retail experiences that keep users in control.">Porozmawiajmy o digitalowych doświadczeniach zakupowych, które stawiają użytkownika w centrum.</p>
+          <a href="mailto:gap.wyrwa@gmail.com">gap.wyrwa@gmail.com</a>
+          <p data-pl="Dostępne wersje językowe: polski, angielski." data-en="Available communication languages: Polish, English.">Dostępne wersje językowe: polski, angielski.</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <div data-pl="© 2024 gapwyrwa. Wszystkie prawa zastrzeżone." data-en="© 2024 gapwyrwa. All rights reserved.">© 2024 gapwyrwa. Wszystkie prawa zastrzeżone.</div>
+        <a href="privacy.html" data-pl="Polityka prywatności" data-en="Privacy policy">Polityka prywatności</a>
+      </div>
+    </footer>
+    <script>
+      const htmlElement = document.documentElement;
+      const localeButtons = document.querySelectorAll('[data-locale-button]');
+      const translatableElements = document.querySelectorAll('[data-pl]');
+
+      function setLocale(locale) {
+        htmlElement.setAttribute('lang', locale);
+        translatableElements.forEach((el) => {
+          const text = el.dataset[locale];
+          if (text) {
+            el.textContent = text;
+          }
+        });
+        localeButtons.forEach((btn) => {
+          btn.classList.toggle('active', btn.dataset.localeButton === locale);
+        });
+      }
+
+      localeButtons.forEach((btn) => {
+        btn.addEventListener('click', () => setLocale(btn.dataset.localeButton));
+      });
+
+      setLocale('pl');
+    </script>
+  </body>
+</html>
