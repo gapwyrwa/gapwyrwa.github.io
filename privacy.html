@@ -47,26 +47,32 @@
       }
 
       a.brand {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        font-size: 0.9rem;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        grid-column-gap: 10px;
+        align-items: center;
         font-weight: 600;
-        letter-spacing: 0.06em;
         color: inherit;
         text-decoration: none;
       }
 
       .brand-logo {
+        grid-row: 1 / span 2;
         height: 32px;
         width: auto;
       }
 
       a.brand span {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      a.brand small {
+        font-size: 0.85rem;
         letter-spacing: 0.02em;
-        font-weight: 600;
+        margin-top: -2px;
       }
 
       .locale-toggle {
@@ -176,7 +182,8 @@
     <header>
       <a class="brand" href="index.html">
         <img src="GAP.png" alt="Logo GAP" class="brand-logo" />
-        <span>GAP · Grzegorz Wyrwa</span>
+        <span>GAP</span>
+        <small>Grzegorz Wyrwa</small>
       </a>
       <div class="locale-toggle" role="group" aria-label="Language toggle">
         <button type="button" data-locale-button="pl" class="active">PL</button>
