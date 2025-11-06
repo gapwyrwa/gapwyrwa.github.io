@@ -346,6 +346,44 @@
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       }
 
+      .about-grid {
+        display: grid;
+        grid-template-columns: minmax(220px, 320px) 1fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .about-portrait {
+        margin: 0;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 26px 48px rgba(15, 15, 35, 0.16);
+      }
+
+      .about-portrait img {
+        width: 100%;
+        display: block;
+      }
+
+      .about-copy h2 {
+        margin: 0 0 18px;
+        font-size: clamp(1.8rem, 3vw, 2.2rem);
+        letter-spacing: -0.02em;
+      }
+
+      .about-copy p {
+        margin: 0 0 16px;
+        color: var(--fg-muted);
+        line-height: 1.65;
+        font-size: 1.05rem;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .about-copy p {
+          color: rgba(237, 237, 250, 0.78);
+        }
+      }
+
       .project-card {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -446,6 +484,15 @@
           padding: 28px;
         }
 
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .about-portrait {
+          max-width: 260px;
+          margin: 0 auto;
+        }
+
         footer .footer-content {
           flex-direction: column;
           align-items: flex-start;
@@ -459,6 +506,7 @@
         <div class="brand">gapwyrwa</div>
         <nav>
           <a href="#vision" data-pl="Wizja" data-en="Vision">Wizja</a>
+          <a href="#about" data-pl="O mnie" data-en="About">O mnie</a>
           <a href="#pricer" data-pl="Pricer" data-en="Pricer">Pricer</a>
           <a href="#roadmap" data-pl="Plan" data-en="Roadmap">Plan</a>
           <a href="#contact" data-pl="Kontakt" data-en="Contact">Kontakt</a>
@@ -498,6 +546,21 @@
             <img src="Screenshot_20251106_105103.png" alt="Pricer welcome screen" loading="lazy" />
             <figcaption data-pl="Ekran powitalny" data-en="Welcome screen">Ekran powitalny</figcaption>
           </figure>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-heading" data-pl="O mnie" data-en="About me">O mnie</div>
+        <div class="glass-card about-grid">
+          <figure class="about-portrait">
+            <img src="IMG_20241123_140956540_HDR_AE~3.jpg" alt="Gap Wyrwa" loading="lazy" />
+          </figure>
+          <div class="about-copy">
+            <h2 data-pl="Gap Wyrwa — przekierowuję karierę do IT" data-en="Gap Wyrwa — shifting my career into IT">Gap Wyrwa — przekierowuję karierę do IT</h2>
+            <p data-pl="Po latach pracy blisko retailu i produktów fizycznych zdecydowałem, że chcę tworzyć narzędzia cyfrowe. Uczę się Fluttera, projektuję doświadczenia i buduję własne aplikacje, a od 2025 roku rozpoczynam studia informatyczne." data-en="After years around retail and physical products I committed to building digital tools. I am learning Flutter, crafting experiences, and from 2025 I begin formal computer science studies.">Po latach pracy blisko retailu i produktów fizycznych zdecydowałem, że chcę tworzyć narzędzia cyfrowe. Uczę się Fluttera, projektuję doświadczenia i buduję własne aplikacje, a od 2025 roku rozpoczynam studia informatyczne.</p>
+            <p data-pl="Cenię rzetelność danych i pragmatyczne podejście do rozwoju produktu. Każdy eksperyment w Pricerze traktuję jako inwestycję w kompetencje, które chcę dalej rozwijać już w branży IT." data-en="I value trustworthy data and a pragmatic product mindset. Every experiment inside Pricer is groundwork for the skills I want to grow while moving fully into IT.">Cenię rzetelność danych i pragmatyczne podejście do rozwoju produktu. Każdy eksperyment w Pricerze traktuję jako inwestycję w kompetencje, które chcę dalej rozwijać już w branży IT.</p>
+            <p data-pl="Kolejnym krokiem będzie aplikacja wspierająca walkę z prokrastynacją — planuję wykorzystać obserwacje z pracy nad Pricerem, aby zaprojektować codzienne rytuały motywacyjne i monitorować realny postęp." data-en="Next up: an app that helps fight procrastination. I want to reuse lessons from Pricer to design daily motivational rituals and give people honest feedback on progress.">Kolejnym krokiem będzie aplikacja wspierająca walkę z prokrastynacją — planuję wykorzystać obserwacje z pracy nad Pricerem, aby zaprojektować codzienne rytuały motywacyjne i monitorować realny postęp.</p>
+          </div>
         </div>
       </section>
 
@@ -555,6 +618,10 @@
           <div class="glass-card feature-card">
             <h3 data-pl="Styczeń 2025" data-en="January 2025">Styczeń 2025</h3>
             <p data-pl="Alerty promocyjne i moduł asystenta zakupowego korzystający z historii cen — przygotowanie roadmapy 1.1." data-en="Promo alerts and the shopping assistant module backed by price history — planning the 1.1 roadmap.">Alerty promocyjne i moduł asystenta zakupowego korzystający z historii cen — przygotowanie roadmapy 1.1.</p>
+          </div>
+          <div class="glass-card feature-card">
+            <h3 data-pl="Q1 2025" data-en="Q1 2025">Q1 2025</h3>
+            <p data-pl="Kick-off nowego projektu: aplikacji do walki z prokrastynacją. Skupię się na rytuałach, mikrocelebrach i pomiarze faktycznego postępu, łącząc design mobilny z wiedzą z nadchodzących studiów." data-en="Kick off a new project: a procrastination-fighting companion. I will focus on rituals, micro-celebrations, and measuring real progress while blending mobile design with my upcoming CS studies.">Kick-off nowego projektu: aplikacji do walki z prokrastynacją. Skupię się na rytuałach, mikrocelebrach i pomiarze faktycznego postępu, łącząc design mobilny z wiedzą z nadchodzących studiów.</p>
           </div>
         </div>
       </section>
